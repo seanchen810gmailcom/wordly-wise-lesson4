@@ -1,0 +1,400 @@
+<!DOCTYPE html> <!-- 定義 HTML 文件類型 -->
+<html lang="zh-Hant"> <!-- 網頁語言設定為繁體中文 -->
+
+<head> <!-- 頁首開始 -->
+  <meta charset="UTF-8"> <!-- 設定字元編碼 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 設定手機版顯示比例 -->
+  <title>Wordly Wise L4</title> <!-- 網頁標題 -->
+
+  <style>
+    /* CSS 開始 */
+    body {
+      /* 設定整體頁面樣式 */
+      font-family: Arial, sans-serif;
+      /* 設定字體 */
+      padding: 20px;
+      /* 設定內距 */
+      background: #f5f5f5;
+      /* 設定背景顏色 */
+      margin: 0;
+      /* 移除外距 */
+    }
+
+    /* body 結束 */
+
+    h1 {
+      /* 主標題樣式 */
+      text-align: center;
+      /* 文字置中 */
+      margin-bottom: 10px;
+      /* 下方間距 */
+    }
+
+    /* h1 結束 */
+
+    .tip {
+      /* 提示文字樣式 */
+      text-align: center;
+      /* 文字置中 */
+      color: #666;
+      /* 文字顏色 */
+      margin-bottom: 25px;
+      /* 下方間距 */
+      line-height: 1.6;
+      /* 行高 */
+    }
+
+    /* .tip 結束 */
+
+    .container {
+      /* 外層容器樣式 */
+      max-width: 1100px;
+      /* 最大寬度 */
+      margin: 0 auto;
+      /* 置中 */
+    }
+
+    /* .container 結束 */
+
+    #container {
+      /* 卡片容器樣式 */
+      display: grid;
+      /* 使用網格排版 */
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      /* 自動換欄 */
+      gap: 15px;
+      /* 卡片間距 */
+    }
+
+    /* #container 結束 */
+
+    .card {
+      /* 單字卡片樣式 */
+      background: white;
+      /* 白色背景 */
+      padding: 16px;
+      /* 內距 */
+      border-radius: 12px;
+      /* 圓角 */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      /* 陰影 */
+    }
+
+    /* .card 結束 */
+
+    .word {
+      /* 英文單字樣式 */
+      font-size: 22px;
+      /* 字體大小 */
+      font-weight: bold;
+      /* 粗體 */
+      color: #2c3e50;
+      /* 文字顏色 */
+      cursor: pointer;
+      /* 滑鼠變手指 */
+      margin-bottom: 12px;
+      /* 下方間距 */
+    }
+
+    /* .word 結束 */
+
+    .button-group {
+      /* 按鈕群組樣式 */
+      display: flex;
+      /* 使用 flex 排版 */
+      gap: 10px;
+      /* 按鈕間距 */
+      flex-wrap: wrap;
+      /* 按鈕過多時可換行 */
+    }
+
+    /* .button-group 結束 */
+
+    button {
+      /* 按鈕樣式 */
+      padding: 8px 12px;
+      /* 內距 */
+      border: none;
+      /* 移除邊框 */
+      border-radius: 8px;
+      /* 圓角 */
+      background: #2c3e50;
+      /* 背景顏色 */
+      color: white;
+      /* 文字顏色 */
+      cursor: pointer;
+      /* 滑鼠變手指 */
+      font-size: 14px;
+      /* 字體大小 */
+    }
+
+    /* button 結束 */
+
+    button:hover {
+      /* 滑鼠移上按鈕效果 */
+      opacity: 0.9;
+      /* 稍微透明 */
+    }
+
+    /* button:hover 結束 */
+
+    .definition-box {
+      /* 英文解釋區塊樣式 */
+      display: none;
+      /* 預設隱藏 */
+      margin-top: 12px;
+      /* 上方間距 */
+      padding: 10px;
+      /* 內距 */
+      background: #f0f4f8;
+      /* 淺色背景 */
+      border-radius: 8px;
+      /* 圓角 */
+      color: #333;
+      /* 文字顏色 */
+      line-height: 1.7;
+      /* 行高 */
+      font-size: 14px;
+      /* 字體大小 */
+    }
+
+    /* .definition-box 結束 */
+
+    .translation-box {
+      /* 中文翻譯區塊樣式 */
+      display: none;
+      /* 預設隱藏 */
+      margin-top: 12px;
+      /* 上方間距 */
+      padding: 10px;
+      /* 內距 */
+      background: #fff7e6;
+      /* 淺黃色背景 */
+      border-radius: 8px;
+      /* 圓角 */
+      color: #333;
+      /* 文字顏色 */
+      line-height: 1.7;
+      /* 行高 */
+      font-size: 14px;
+      /* 字體大小 */
+    }
+
+    /* .translation-box 結束 */
+
+    .label {
+      /* 小標籤樣式 */
+      font-weight: bold;
+      /* 粗體 */
+      color: #1f2d3d;
+      /* 文字顏色 */
+    }
+
+    /* .label 結束 */
+  </style> <!-- CSS 結束 -->
+</head> <!-- 頁首結束 -->
+
+<body> <!-- 頁面主體開始 -->
+
+  <div class="container"> <!-- 外層容器開始 -->
+    <h1>Wordly Wise L4</h1> <!-- 主標題 -->
+    <div id="container"></div> <!-- 卡片容器 -->
+  </div> <!-- 外層容器結束 -->
+
+  <script> // JavaScript 開始
+
+    const words = [ // 建立單字資料陣列
+      { // accurate 資料開始
+        word: "accurate", // 單字
+        translation: "準確的、精確的", // 中文意思
+        definition: "Correct and exact; free from mistakes.", // 英文定義
+        sentence: "The map is accurate, so we can trust it." // 英文例句
+      }, // accurate 資料結束
+      { // approximate 資料開始
+        word: "approximate", // 單字
+        translation: "大約的、近似的", // 中文意思
+        definition: "Close to the real amount, number, or time, but not exact.", // 英文定義
+        sentence: "The approximate cost of the trip is 500 dollars." // 英文例句
+      }, // approximate 資料結束
+      { // course 資料開始
+        word: "course", // 單字
+        translation: "課程；路線；方向", // 中文意思
+        definition: "A set of classes on a subject, or the direction something moves in.", // 英文定義
+        sentence: "She is taking a course in English writing." // 英文例句
+      }, // course 資料結束
+      { // depart 資料開始
+        word: "depart", // 單字
+        translation: "出發、離開", // 中文意思
+        definition: "To leave a place, especially to start a journey.", // 英文定義
+        sentence: "The train will depart at 8:30 in the morning." // 英文例句
+      }, // depart 資料結束
+      { // despair 資料開始
+        word: "despair", // 單字
+        translation: "絕望", // 中文意思
+        definition: "A feeling of having no hope at all.", // 英文定義
+        sentence: "He felt despair after hearing the bad news." // 英文例句
+      }, // despair 資料結束
+      { // destination 資料開始
+        word: "destination", // 單字
+        translation: "目的地", // 中文意思
+        definition: "The place where someone is going or where something is sent.", // 英文定義
+        sentence: "Taipei is our final destination." // 英文例句
+      }, // destination 資料結束
+      { // deteriorate 資料開始
+        word: "deteriorate", // 單字
+        translation: "惡化、變差", // 中文意思
+        definition: "To become worse in condition, quality, or value.", // 英文定義
+        sentence: "His health began to deteriorate during the winter." // 英文例句
+      }, // deteriorate 資料結束
+      { // gale 資料開始
+        word: "gale", // 單字
+        translation: "大風、強風", // 中文意思
+        definition: "A very strong wind.", // 英文定義
+        sentence: "The fishing boats stayed in the harbor because of the gale." // 英文例句
+      }, // gale 資料結束
+      { // horizon 資料開始
+        word: "horizon", // 單字
+        translation: "地平線；眼界、視野", // 中文意思
+        definition: "The line where the earth and sky seem to meet; also the limit of what someone knows or experiences.", // 英文定義
+        sentence: "As the sun set, it disappeared below the horizon." // 英文例句
+      }, // horizon 資料結束
+      { // jubilation 資料開始
+        word: "jubilation", // 單字
+        translation: "歡騰；喜悅", // 中文意思
+        definition: "A feeling of great happiness and celebration.", // 英文定義
+        sentence: "There was jubilation in the stadium after the team won." // 英文例句
+      }, // jubilation 資料結束
+      { // navigate 資料開始
+        word: "navigate", // 單字
+        translation: "航行；導航；找到路", // 中文意思
+        definition: "To plan and direct the course of a ship, car, or person; to find the way.", // 英文定義
+        sentence: "We used a map to navigate through the old town." // 英文例句
+      }, // navigate 資料結束
+      { // nostalgia 資料開始
+        word: "nostalgia", // 單字
+        translation: "懷舊；對往日時光的思念", // 中文意思
+        definition: "A warm or sad feeling when thinking about the past.", // 英文定義
+        sentence: "The old song filled her with nostalgia." // 英文例句
+      }, // nostalgia 資料結束
+      { // revive 資料開始
+        word: "revive", // 單字
+        translation: "使復甦；使恢復精神", // 中文意思
+        definition: "To bring back to life, activity, or strength.", // 英文定義
+        sentence: "A short break helped revive his energy." // 英文例句
+      }, // revive 資料結束
+      { // sever 資料開始
+        word: "sever", // 單字
+        translation: "切斷；中斷", // 中文意思
+        definition: "To cut off completely or end a relationship or connection.", // 英文定義
+        sentence: "The storm severed the power lines." // 英文例句
+      }, // sever 資料結束
+      { // voyage 資料開始
+        word: "voyage", // 單字
+        translation: "航海；航行；長途旅行", // 中文意思
+        definition: "A long journey, especially by sea or in space.", // 英文定義
+        sentence: "The sailors began their voyage across the Pacific." // 英文例句
+      } // voyage 資料結束
+    ]; // 單字資料陣列結束
+
+    const container = document.getElementById("container"); // 取得卡片容器
+    let voices = []; // 建立語音陣列
+
+    function loadVoices() { // 載入語音函式開始
+      voices = speechSynthesis.getVoices(); // 取得系統所有語音
+    } // 載入語音函式結束
+
+    loadVoices(); // 先執行一次載入語音
+    speechSynthesis.onvoiceschanged = loadVoices; // 等語音真正載入完成後再更新
+
+    function getSamanthaVoice() { // 尋找 Samantha 語音函式開始
+      let voice = voices.find(v => v.name.includes("Samantha")); // 先找 Samantha
+      if (voice) return voice; // 如果找到就直接回傳
+
+      voice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith("en")); // 如果沒有 Samantha，就找任一英文語音
+      if (voice) return voice; // 如果找到英文語音就回傳
+
+      return voices[0]; // 最後找不到就回傳第一個語音
+    } // 尋找 Samantha 語音函式結束
+
+    function speak(text) { // 朗讀函式開始
+      speechSynthesis.cancel(); // 先取消前一個語音避免重疊
+
+      const utter = new SpeechSynthesisUtterance(text); // 建立語音物件
+      const voice = getSamanthaVoice(); // 取得要使用的語音
+
+      if (voice) { // 如果有找到語音
+        utter.voice = voice; // 指定語音
+        utter.lang = voice.lang; // 指定語音語系
+      } else { // 如果沒有語音
+        utter.lang = "en-US"; // 預設備用語系
+      } // 判斷結束
+
+      utter.rate = 0.85; // 設定語速
+      utter.pitch = 1; // 設定音高
+      utter.volume = 1; // 設定音量
+
+      speechSynthesis.speak(utter); // 開始播放語音
+    } // 朗讀函式結束
+
+    words.forEach(item => { // 逐一產生每張卡片開始
+      const card = document.createElement("div"); // 建立卡片
+      card.className = "card"; // 設定卡片 class
+
+      const word = document.createElement("div"); // 建立單字區塊
+      word.className = "word"; // 設定單字 class
+      word.innerText = item.word; // 顯示單字
+      word.onclick = () => speak(item.word); // 點擊時朗讀單字
+
+      const buttonGroup = document.createElement("div"); // 建立按鈕群組
+      buttonGroup.className = "button-group"; // 設定按鈕群組 class
+
+      const definitionBtn = document.createElement("button"); // 建立 Definition 按鈕
+      definitionBtn.innerText = "Definition"; // 設定按鈕文字
+
+      const translationBtn = document.createElement("button"); // 建立中文按鈕
+      translationBtn.innerText = "中文"; // 設定按鈕文字
+
+      const definitionBox = document.createElement("div"); // 建立英文解釋區塊
+      definitionBox.className = "definition-box"; // 設定英文解釋區塊 class
+      definitionBox.innerHTML = `<span class="label">English Definition:</span><br>${item.definition}<br><br><span class="label">English Sentence:</span><br>${item.sentence}`; // 放入英文定義與例句
+
+      const translationBox = document.createElement("div"); // 建立中文翻譯區塊
+      translationBox.className = "translation-box"; // 設定中文翻譯區塊 class
+      translationBox.innerHTML = `<span class="label">中文意思：</span><br>${item.translation}`; // 放入中文翻譯內容
+
+      definitionBtn.onclick = () => { // Definition 按鈕事件開始
+        if (definitionBox.style.display === "none" || definitionBox.style.display === "") { // 如果目前隱藏
+          definitionBox.style.display = "block"; // 顯示英文解釋區塊
+          definitionBtn.innerText = "隱藏 Definition"; // 修改按鈕文字
+        } else { // 否則
+          definitionBox.style.display = "none"; // 隱藏英文解釋區塊
+          definitionBtn.innerText = "Definition"; // 恢復按鈕文字
+        } // 判斷結束
+      }; // Definition 按鈕事件結束
+
+      translationBtn.onclick = () => { // 翻譯按鈕事件開始
+        if (translationBox.style.display === "none" || translationBox.style.display === "") { // 如果目前隱藏
+          translationBox.style.display = "block"; // 顯示中文翻譯區塊
+          translationBtn.innerText = "隱藏中文"; // 修改按鈕文字
+        } else { // 否則
+          translationBox.style.display = "none"; // 隱藏中文翻譯區塊
+          translationBtn.innerText = "中文"; // 恢復按鈕文字
+        } // 判斷結束
+      }; // 翻譯按鈕事件結束
+
+      buttonGroup.appendChild(definitionBtn); // 把 Definition 按鈕加入按鈕群組
+      buttonGroup.appendChild(translationBtn); // 把翻譯按鈕加入按鈕群組
+
+      card.appendChild(word); // 把單字加入卡片
+      card.appendChild(buttonGroup); // 把按鈕群組加入卡片
+      card.appendChild(definitionBox); // 把英文解釋區塊加入卡片
+      card.appendChild(translationBox); // 把中文翻譯區塊加入卡片
+
+      container.appendChild(card); // 把整張卡片加入頁面
+    }); // 逐一產生每張卡片結束
+
+  </script> <!-- JavaScript 結束 -->
+
+</body> <!-- 頁面主體結束 -->
+
+</html> <!-- HTML 文件結束 -->

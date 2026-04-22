@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordly Wise Unit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="container">
+    <nav class="top-bar" aria-label="Page navigation">
+      <a class="back-link" href="index.html">首頁</a>
+    </nav>
+
+    <header class="page-header">
+      <h1 id="unit-title">Wordly Wise</h1>
+      <p id="unit-count" class="tip"></p>
+    </header>
+
+    <div id="word-container" class="word-grid"></div>
+    <p id="unit-error" class="error-message" hidden>找不到這個 Unit。</p>
+  </main>
+
+  <script src="words-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

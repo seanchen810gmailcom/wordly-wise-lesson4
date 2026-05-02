@@ -216,22 +216,6 @@
     return voices[0];
   }
 
-  function getChineseVoice() {
-    let voice = voices.find(item => item.lang && item.lang.toLowerCase() === "zh-tw");
-    if (voice) return voice;
-
-    voice = voices.find(item => {
-      const lang = item.lang && item.lang.toLowerCase();
-      return lang === "zh-hant" || lang === "zh-hk" || lang === "zh-cn";
-    });
-    if (voice) return voice;
-
-    voice = voices.find(item => item.lang && item.lang.toLowerCase().startsWith("zh"));
-    if (voice) return voice;
-
-    return null;
-  }
-
   function speak(text, lang) {
     if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
       return;
@@ -240,14 +224,13 @@
     window.speechSynthesis.cancel();
 
     const utter = new SpeechSynthesisUtterance(text);
-    const isChinese = lang && lang.toLowerCase().startsWith("zh");
-    const voice = isChinese ? getChineseVoice() : getEnglishVoice();
+    const voice = getEnglishVoice();
 
     if (voice) {
       utter.voice = voice;
       utter.lang = voice.lang;
     } else {
-      utter.lang = isChinese ? "zh-TW" : "en-US";
+      utter.lang = lang || "en-US";
     }
 
     utter.rate = 0.85;

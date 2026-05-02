@@ -110,7 +110,7 @@
     const card = document.createElement("div");
     card.className = "card";
 
-    const word = createSpeakableText("div", item.word, `Speak ${item.word}`);
+    const word = createSpeakableText("div", item.word, `Speak ${item.word}`, "en");
     word.className = "word speakable-text";
 
     const buttonGroup = document.createElement("div");
@@ -151,10 +151,10 @@
     const box = document.createElement("div");
     box.className = "definition-box";
 
-    addLabeledText(box, "English Definition:", item.definition);
+    addLabeledText(box, "English Definition:", item.definition, "en");
     box.appendChild(document.createElement("br"));
     box.appendChild(document.createElement("br"));
-    addLabeledText(box, "English Sentence:", item.sentence);
+    addLabeledText(box, "English Sentence:", item.sentence, "en");
 
     return box;
   }
@@ -163,33 +163,34 @@
     const box = document.createElement("div");
     box.className = "translation-box";
 
-    addLabeledText(box, "中文意思：", item.translation);
+    addLabeledText(box, "中文意思：", item.translation, "zh-TW");
 
     return box;
   }
 
-  function addLabeledText(parent, labelText, bodyText) {
+  function addLabeledText(parent, labelText, bodyText, lang) {
     const label = document.createElement("span");
     label.className = "label";
     label.textContent = labelText;
 
     parent.appendChild(label);
     parent.appendChild(document.createElement("br"));
-    parent.appendChild(createSpeakableText("span", bodyText, `Speak ${bodyText}`));
+    parent.appendChild(createSpeakableText("span", bodyText, `Speak ${bodyText}`, lang));
   }
 
-  function createSpeakableText(tagName, text, ariaLabel) {
+  function createSpeakableText(tagName, text, ariaLabel, lang) {
     const element = document.createElement(tagName);
     element.className = "speakable-text";
     element.tabIndex = 0;
     element.setAttribute("role", "button");
     element.setAttribute("aria-label", ariaLabel);
+    element.lang = lang;
     element.textContent = text;
-    element.addEventListener("click", () => speak(text));
+    element.addEventListener("click", () => speak(text, lang));
     element.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        speak(text);
+        speak(text, lang);
       }
     });
 
@@ -201,7 +202,7 @@
     return box.classList.contains("is-visible");
   }
 
-  function getSamanthaVoice() {
+  function getEnglishVoice() {
     let voice = voices.find(item => item.name.includes("Samantha"));
     if (voice) return voice;
 
@@ -211,7 +212,23 @@
     return voices[0];
   }
 
-  function speak(text) {
+  function getChineseVoice() {
+    let voice = voices.find(item => item.lang && item.lang.toLowerCase() === "zh-tw");
+    if (voice) return voice;
+
+    voice = voices.find(item => {
+      const lang = item.lang && item.lang.toLowerCase();
+      return lang === "zh-hant" || lang === "zh-hk" || lang === "zh-cn";
+    });
+    if (voice) return voice;
+
+    voice = voices.find(item => item.lang && item.lang.toLowerCase().startsWith("zh"));
+    if (voice) return voice;
+
+    return null;
+  }
+
+  function speak(text, lang) {
     if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
       return;
     }
@@ -219,13 +236,14 @@
     window.speechSynthesis.cancel();
 
     const utter = new SpeechSynthesisUtterance(text);
-    const voice = getSamanthaVoice();
+    const isChinese = lang && lang.toLowerCase().startsWith("zh");
+    const voice = isChinese ? getChineseVoice() : getEnglishVoice();
 
     if (voice) {
       utter.voice = voice;
       utter.lang = voice.lang;
     } else {
-      utter.lang = "en-US";
+      utter.lang = isChinese ? "zh-TW" : "en-US";
     }
 
     utter.rate = 0.85;

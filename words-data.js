@@ -378,5 +378,100 @@ window.WORDLY_WISE_UNITS = {
         sentence: "The sailors began their voyage across the Pacific."
       }
     ]
+  },
+  "5": {
+    title: "Unit 5",
+    words: [
+      {
+        word: "avalanche",
+        translation: "雪崩；大量湧來的事物",
+        definition: "A large mass of snow, ice, or rocks that suddenly falls down a mountain.",
+        sentence: "The loud noise started an avalanche on the steep mountain."
+      },
+      {
+        word: "blizzard",
+        translation: "暴風雪",
+        definition: "A severe snowstorm with strong winds.",
+        sentence: "The blizzard made it impossible to see the road."
+      },
+      {
+        word: "challenge",
+        translation: "挑戰；質疑",
+        definition: "Something difficult that tests skill, strength, or ability.",
+        sentence: "Climbing the icy hill was a real challenge."
+      },
+      {
+        word: "conquer",
+        translation: "征服；克服",
+        definition: "To take control of a place or to succeed in dealing with a difficulty.",
+        sentence: "The climbers hoped to conquer the dangerous peak."
+      },
+      {
+        word: "crevice",
+        translation: "裂縫；裂隙",
+        definition: "A narrow crack in rock, ice, or another hard surface.",
+        sentence: "A small crevice in the ice was hidden by fresh snow."
+      },
+      {
+        word: "foolhardy",
+        translation: "魯莽的；有勇無謀的",
+        definition: "Taking dangerous risks without thinking carefully.",
+        sentence: "It was foolhardy to hike alone during the storm."
+      },
+      {
+        word: "lure",
+        translation: "引誘；誘惑",
+        definition: "To attract or tempt someone to do something or go somewhere.",
+        sentence: "The promise of a beautiful view can lure hikers up the trail."
+      },
+      {
+        word: "makeshift",
+        translation: "臨時替代的；權宜的",
+        definition: "Used only for a short time because nothing better is available.",
+        sentence: "They built a makeshift shelter from branches and a tarp."
+      },
+      {
+        word: "optimist",
+        translation: "樂觀的人",
+        definition: "A person who expects good things to happen.",
+        sentence: "Even in bad weather, the optimist believed the sun would return."
+      },
+      {
+        word: "previous",
+        translation: "先前的；以前的",
+        definition: "Happening or existing before the present time or event.",
+        sentence: "The previous team had left ropes along the route."
+      },
+      {
+        word: "route",
+        translation: "路線；路途",
+        definition: "The path or way used to get from one place to another.",
+        sentence: "We chose the safest route to the summit."
+      },
+      {
+        word: "summit",
+        translation: "山頂；最高點",
+        definition: "The highest point of a mountain.",
+        sentence: "The climbers reached the summit before noon."
+      },
+      {
+        word: "terse",
+        translation: "簡短生硬的；簡潔的",
+        definition: "Using very few words, sometimes in a way that seems rude.",
+        sentence: "His terse reply told us to turn back immediately."
+      },
+      {
+        word: "thwart",
+        translation: "阻撓；使受挫",
+        definition: "To prevent someone from doing what they planned to do.",
+        sentence: "Heavy snow may thwart our plan to climb today."
+      },
+      {
+        word: "vertical",
+        translation: "垂直的；直立的",
+        definition: "Standing or pointing straight up and down.",
+        sentence: "The vertical cliff was too dangerous to climb."
+      }
+    ]
   }
 };

@@ -1,6 +1,6 @@
 (function () {
   const units = window.WORDLY_WISE_UNITS || {};
-  const unitOrder = ["1", "2", "3", "4"];
+  const unitOrder = ["1", "2", "3", "4", "5"];
   let voices = [];
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -110,19 +110,8 @@
     const card = document.createElement("div");
     card.className = "card";
 
-    const word = document.createElement("div");
-    word.className = "word";
-    word.tabIndex = 0;
-    word.setAttribute("role", "button");
-    word.setAttribute("aria-label", `Speak ${item.word}`);
-    word.textContent = item.word;
-    word.addEventListener("click", () => speak(item.word));
-    word.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        speak(item.word);
-      }
-    });
+    const word = createSpeakableText("div", item.word, `Speak ${item.word}`);
+    word.className = "word speakable-text";
 
     const buttonGroup = document.createElement("div");
     buttonGroup.className = "button-group";
@@ -186,7 +175,25 @@
 
     parent.appendChild(label);
     parent.appendChild(document.createElement("br"));
-    parent.appendChild(document.createTextNode(bodyText));
+    parent.appendChild(createSpeakableText("span", bodyText, `Speak ${bodyText}`));
+  }
+
+  function createSpeakableText(tagName, text, ariaLabel) {
+    const element = document.createElement(tagName);
+    element.className = "speakable-text";
+    element.tabIndex = 0;
+    element.setAttribute("role", "button");
+    element.setAttribute("aria-label", ariaLabel);
+    element.textContent = text;
+    element.addEventListener("click", () => speak(text));
+    element.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        speak(text);
+      }
+    });
+
+    return element;
   }
 
   function toggleBox(box) {

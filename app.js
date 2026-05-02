@@ -163,7 +163,7 @@
     const box = document.createElement("div");
     box.className = "translation-box";
 
-    addLabeledText(box, "中文意思：", item.translation, "zh-TW");
+    addLabeledText(box, "中文意思：", item.translation);
 
     return box;
   }
@@ -175,7 +175,11 @@
 
     parent.appendChild(label);
     parent.appendChild(document.createElement("br"));
-    parent.appendChild(createSpeakableText("span", bodyText, `Speak ${bodyText}`, lang));
+    if (lang) {
+      parent.appendChild(createSpeakableText("span", bodyText, `Speak ${bodyText}`, lang));
+    } else {
+      parent.appendChild(document.createTextNode(bodyText));
+    }
   }
 
   function createSpeakableText(tagName, text, ariaLabel, lang) {

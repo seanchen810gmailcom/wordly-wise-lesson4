@@ -129,17 +129,14 @@ h1 {
 .word {
   margin-bottom: 12px;
   color: #2c3e50;
+  cursor: pointer;
   font-size: 22px;
   font-weight: bold;
   line-height: 1.25;
   word-break: break-word;
 }
 
-.speakable-text {
-  cursor: pointer;
-}
-
-.speakable-text:focus-visible {
+.word:focus-visible {
   border-radius: 6px;
   outline: 3px solid #9cc6f2;
   outline-offset: 3px;

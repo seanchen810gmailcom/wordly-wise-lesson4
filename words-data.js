@@ -473,5 +473,100 @@ window.WORDLY_WISE_UNITS = {
         sentence: "The vertical cliff was too dangerous to climb."
       }
     ]
+  },
+  "6": {
+    title: "Unit 6",
+    words: [
+      {
+        word: "abolish",
+        translation: "廢除；取消",
+        definition: "To officially end a law, rule, or system.",
+        sentence: "The country decided to abolish the unfair rule."
+      },
+      {
+        word: "agony",
+        translation: "極大的痛苦",
+        definition: "Very strong pain or suffering.",
+        sentence: "He was in agony after hurting his leg."
+      },
+      {
+        word: "catapult",
+        translation: "彈射器；發射；使快速前進",
+        definition: "A machine that throws things far; to throw or move something quickly.",
+        sentence: "The old army used a catapult to throw stones."
+      },
+      {
+        word: "character",
+        translation: "性格；角色；品格",
+        definition: "The qualities of a person, or a person in a story.",
+        sentence: "The main character in the story is brave."
+      },
+      {
+        word: "denounce",
+        translation: "公開譴責；指責",
+        definition: "To strongly and publicly say that something is wrong.",
+        sentence: "The mayor denounced the violent behavior."
+      },
+      {
+        word: "escalate",
+        translation: "升級；惡化；增加",
+        definition: "To become greater, worse, or more serious.",
+        sentence: "The argument began to escalate after more people joined."
+      },
+      {
+        word: "grim",
+        translation: "嚴肅的；陰沉的；令人擔憂的",
+        definition: "Very serious, sad, or worrying.",
+        sentence: "The doctor had a grim look on his face."
+      },
+      {
+        word: "harbor",
+        translation: "港口；庇護；心懷",
+        definition: "A safe place for ships; to keep a thought or feeling in your mind.",
+        sentence: "The boats stayed in the harbor during the storm."
+      },
+      {
+        word: "inflict",
+        translation: "造成；使承受",
+        definition: "To cause pain, damage, or trouble to someone.",
+        sentence: "The storm may inflict damage on many homes."
+      },
+      {
+        word: "loathe",
+        translation: "非常厭惡",
+        definition: "To hate something or someone very much.",
+        sentence: "I loathe the smell of rotten food."
+      },
+      {
+        word: "meddle",
+        translation: "干涉；多管閒事",
+        definition: "To get involved in something that is not your business.",
+        sentence: "Please do not meddle in their private problem."
+      },
+      {
+        word: "monstrous",
+        translation: "巨大的；可怕的；殘酷的",
+        definition: "Very large, frightening, or cruel.",
+        sentence: "A monstrous wave crashed against the rocks."
+      },
+      {
+        word: "rouse",
+        translation: "喚醒；激起",
+        definition: "To wake someone up or make someone feel excited or active.",
+        sentence: "The loud bell helped rouse everyone from sleep."
+      },
+      {
+        word: "steadfast",
+        translation: "堅定的；不動搖的",
+        definition: "Firm, loyal, and not giving up easily.",
+        sentence: "She stayed steadfast even when the work was hard."
+      },
+      {
+        word: "translate",
+        translation: "翻譯；轉換",
+        definition: "To change words from one language into another.",
+        sentence: "Can you translate this sentence into Chinese?"
+      }
+    ]
   }
 };

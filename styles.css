@@ -129,14 +129,26 @@ h1 {
 .word {
   margin-bottom: 12px;
   color: #2c3e50;
-  cursor: pointer;
   font-size: 22px;
   font-weight: bold;
   line-height: 1.25;
   word-break: break-word;
 }
 
-.word:focus-visible {
+.speakable-text {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.speakable-text:hover {
+  opacity: 0.7;
+}
+
+.speakable-text:active {
+  opacity: 0.5;
+}
+
+.speakable-text:focus-visible {
   border-radius: 6px;
   outline: 3px solid #9cc6f2;
   outline-offset: 3px;

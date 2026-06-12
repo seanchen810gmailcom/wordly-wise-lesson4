@@ -15,6 +15,7 @@
 
     if (unitList) {
       renderHome(unitList);
+      makePageHeaderSpeakable();
     }
 
     if (wordContainer) {
@@ -45,6 +46,15 @@
     });
   }
 
+  function makePageHeaderSpeakable() {
+    const pageHeader = document.querySelector(".page-header h1");
+    if (pageHeader && pageHeader.textContent) {
+      const text = pageHeader.textContent;
+      pageHeader.textContent = "";
+      pageHeader.appendChild(createSpeakableText("span", text, `Speak ${text}`, "en"));
+    }
+  }
+
   function createUnitCard(unitId, unit) {
     const firstWord = unit.words[0]?.word || "";
     const lastWord = unit.words[unit.words.length - 1]?.word || "";
@@ -55,11 +65,16 @@
     const titleGroup = document.createElement("div");
     const title = document.createElement("h2");
     title.className = "unit-card-title";
-    title.textContent = unit.title;
+    title.textContent = "";
+    const titleSpeakable = createSpeakableText("span", unit.title, `Speak ${unit.title}`, "en");
+    title.appendChild(titleSpeakable);
 
     const count = document.createElement("p");
     count.className = "unit-card-count";
-    count.textContent = `${unit.words.length} words`;
+    count.textContent = "";
+    count.appendChild(document.createTextNode(`${unit.words.length} `));
+    const wordsSpeakable = createSpeakableText("span", "words", "Speak words", "en");
+    count.appendChild(wordsSpeakable);
 
     const range = document.createElement("p");
     range.className = "unit-card-range";
@@ -91,8 +106,20 @@
     }
 
     document.title = `Wordly Wise ${unit.title}`;
-    if (title) title.textContent = `Wordly Wise ${unit.title}`;
-    if (count) count.textContent = `${unit.words.length} words`;
+    if (title) {
+      title.textContent = "";
+      const wordlyText = createSpeakableText("span", "Wordly Wise", "Speak Wordly Wise", "en");
+      title.appendChild(wordlyText);
+      title.appendChild(document.createTextNode(" "));
+      const unitText = createSpeakableText("span", unit.title, `Speak ${unit.title}`, "en");
+      title.appendChild(unitText);
+    }
+    if (count) {
+      count.textContent = "";
+      count.appendChild(document.createTextNode(`${unit.words.length} `));
+      const wordsText = createSpeakableText("span", "words", "Speak words", "en");
+      count.appendChild(wordsText);
+    }
     if (error) error.hidden = true;
 
     unit.words.forEach(item => {
@@ -110,19 +137,8 @@
     const card = document.createElement("div");
     card.className = "card";
 
-    const word = document.createElement("div");
-    word.className = "word";
-    word.tabIndex = 0;
-    word.setAttribute("role", "button");
-    word.setAttribute("aria-label", `Speak ${item.word}`);
-    word.textContent = item.word;
-    word.addEventListener("click", () => speak(item.word));
-    word.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        speak(item.word);
-      }
-    });
+    const word = createSpeakableText("div", item.word, `Speak ${item.word}`, "en");
+    word.className = "word speakable-text";
 
     const buttonGroup = document.createElement("div");
     buttonGroup.className = "button-group";
@@ -162,10 +178,10 @@
     const box = document.createElement("div");
     box.className = "definition-box";
 
-    addLabeledText(box, "English Definition:", item.definition);
+    addLabeledText(box, "English Definition:", item.definition, "en");
     box.appendChild(document.createElement("br"));
     box.appendChild(document.createElement("br"));
-    addLabeledText(box, "English Sentence:", item.sentence);
+    addLabeledText(box, "English Sentence:", item.sentence, "en");
 
     return box;
   }
@@ -179,14 +195,37 @@
     return box;
   }
 
-  function addLabeledText(parent, labelText, bodyText) {
+  function addLabeledText(parent, labelText, bodyText, lang) {
     const label = document.createElement("span");
     label.className = "label";
     label.textContent = labelText;
 
     parent.appendChild(label);
     parent.appendChild(document.createElement("br"));
-    parent.appendChild(document.createTextNode(bodyText));
+    if (lang) {
+      parent.appendChild(createSpeakableText("span", bodyText, `Speak ${bodyText}`, lang));
+    } else {
+      parent.appendChild(document.createTextNode(bodyText));
+    }
+  }
+
+  function createSpeakableText(tagName, text, ariaLabel, lang) {
+    const element = document.createElement(tagName);
+    element.className = "speakable-text";
+    element.tabIndex = 0;
+    element.setAttribute("role", "button");
+    element.setAttribute("aria-label", ariaLabel);
+    element.lang = lang;
+    element.textContent = text;
+    element.addEventListener("click", () => speak(text, lang));
+    element.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        speak(text, lang);
+      }
+    });
+
+    return element;
   }
 
   function toggleBox(box) {
@@ -194,7 +233,7 @@
     return box.classList.contains("is-visible");
   }
 
-  function getSamanthaVoice() {
+  function getEnglishVoice() {
     let voice = voices.find(item => item.name.includes("Samantha"));
     if (voice) return voice;
 
@@ -204,7 +243,7 @@
     return voices[0];
   }
 
-  function speak(text) {
+  function speak(text, lang) {
     if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
       return;
     }
@@ -212,13 +251,13 @@
     window.speechSynthesis.cancel();
 
     const utter = new SpeechSynthesisUtterance(text);
-    const voice = getSamanthaVoice();
+    const voice = getEnglishVoice();
 
     if (voice) {
       utter.voice = voice;
       utter.lang = voice.lang;
     } else {
-      utter.lang = "en-US";
+      utter.lang = lang || "en-US";
     }
 
     utter.rate = 0.85;

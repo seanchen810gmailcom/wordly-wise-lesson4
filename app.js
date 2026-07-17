@@ -1,6 +1,6 @@
 (function () {
   const units = window.WORDLY_WISE_UNITS || {};
-  const unitOrder = ["1", "2", "3", "4", "5", "6"];
+  const unitOrder = ["1", "2", "3", "4", "5", "6", "7"];
   let voices = [];
 
   document.addEventListener("DOMContentLoaded", () => {

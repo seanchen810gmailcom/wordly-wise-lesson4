@@ -568,5 +568,100 @@ window.WORDLY_WISE_UNITS = {
         sentence: "Can you translate this sentence into Chinese?"
       }
     ]
+  },
+  "7": {
+    title: "Unit 7",
+    words: [
+      {
+        word: "colony",
+        translation: "殖民地",
+        definition: "N 1. A group of people, animals, or plants living close together.\nN 2. A group of people who settle in a new land and have legal ties to the country they came from.",
+        sentence: "The ant colony worked together to carry food back to its nest."
+      },
+      {
+        word: "compensate",
+        translation: "補償",
+        definition: "V 1. To make up for, to be equivalent to.\nV 2. To pay for.",
+        sentence: "The store offered to compensate customers for the broken products."
+      },
+      {
+        word: "deposit",
+        translation: "存款、押金",
+        definition: "V 1. To lay down.\nV 2. To put money into a bank account or to give as partial payment.",
+        sentence: "Dad will deposit the check into his bank account after work."
+      },
+      {
+        word: "fascinate",
+        translation: "使著迷；迷住",
+        definition: "V 1. To attract; to strongly hold the interest of.",
+        sentence: "The bright stars fascinate Maya whenever she looks through a telescope."
+      },
+      {
+        word: "feeble",
+        translation: "虛弱的；無力的",
+        definition: "Adj 1. Having little strength; weak.\nAdj 2. Not very believable or satisfying.",
+        sentence: "The sick puppy gave a feeble bark from inside the blanket."
+      },
+      {
+        word: "formal",
+        translation: "正式的",
+        definition: "Adj 1. Following rules or customs.\nAdj 2. Suitable for events where strict standards of dress and behavior are expected.",
+        sentence: "We wore formal clothes to the school concert."
+      },
+      {
+        word: "frigid",
+        translation: "寒冷的",
+        definition: "Adj 1. Very cold.\nAdj 2. Lacking warmth of feeling.",
+        sentence: "The frigid wind made everyone hurry indoors."
+      },
+      {
+        word: "harsh",
+        translation: "嚴厲的；刺耳的",
+        definition: "Adj 1. Rough and unpleasant to the senses.\nAdj 2. Severe or cruel.",
+        sentence: "The coach used a harsh voice when the team ignored the rules."
+      },
+      {
+        word: "huddle",
+        translation: "擠在一起；蜷縮",
+        definition: "V 1. To crowd together.\nV 2. To curl one's body into a small space.",
+        sentence: "The players huddle before the final play of the game."
+      },
+      {
+        word: "remote",
+        translation: "偏遠的；微小的",
+        definition: "Adj 1. Far away in distance or time.\nAdj 2. Slight or faint.",
+        sentence: "They built a cabin in a remote valley far from any town."
+      },
+      {
+        word: "resemble",
+        translation: "像；相似",
+        definition: "V 1. To look like or be similar to.\nV 2. To be similar in quality or character.",
+        sentence: "The twins resemble each other so much that teachers mix up their names."
+      },
+      {
+        word: "rigid",
+        translation: "僵硬的；嚴格的",
+        definition: "Adj 1. Hard to bend or deform.\nAdj 2. Strict or severe.",
+        sentence: "The rigid board would not bend even under heavy weight."
+      },
+      {
+        word: "solitary",
+        translation: "孤獨的；單獨的",
+        definition: "Adj 1. Being alone; without companions.\nAdj 2. Done or existing alone.",
+        sentence: "A solitary tree stood at the top of the quiet hill."
+      },
+      {
+        word: "substantial",
+        translation: "大量的；實質的",
+        definition: "Adj 1. Strong; solid.\nAdj 2. Great in value or size.",
+        sentence: "The class collected a substantial amount of food for the shelter."
+      },
+      {
+        word: "waddle",
+        translation: "搖搖擺擺地走",
+        definition: "V 1. To walk with short steps, swaying from side to side.\nN 2. An awkward, clumsy walk.",
+        sentence: "The toddler began to waddle across the room with a proud smile."
+      }
+    ]
   }
 };

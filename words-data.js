@@ -663,5 +663,76 @@ window.WORDLY_WISE_UNITS = {
         sentence: "The toddler began to waddle across the room with a proud smile."
       }
     ]
+  },
+  "10": {
+    title: "Unit 10",
+    words: [
+      {
+        word: "available",
+        translation: "可取得的；可使用的；有空的",
+        definition: "Adj 1. Ready to be used or obtained.\nAdj 2. Free to help or do something.",
+        sentence: "The librarian is available to help us find books this afternoon."
+      },
+      {
+        word: "bondage",
+        translation: "奴役；受束縛的狀態",
+        definition: "N 1. The state of being enslaved or under someone else's control.",
+        sentence: "The enslaved people dreamed of escaping from bondage."
+      },
+      {
+        word: "donate",
+        translation: "捐贈；捐獻",
+        definition: "V 1. To give money, goods, or time to help a person or organization.",
+        sentence: "Our class will donate books to the children's hospital."
+      },
+      {
+        word: "establish",
+        translation: "建立；設立；證實",
+        definition: "V 1. To start or set up something that is meant to last.\nV 2. To prove or show that something is true.",
+        sentence: "The neighbors worked together to establish a community garden."
+      },
+      {
+        word: "evade",
+        translation: "逃避；躲避；迴避",
+        definition: "V 1. To escape or avoid by being quick or clever.\nV 2. To avoid answering a question or doing a duty.",
+        sentence: "The rabbit made a sudden turn to evade the fox."
+      },
+      {
+        word: "liberate",
+        translation: "解放；使自由",
+        definition: "V 1. To set free from slavery, prison, or another person's control.",
+        sentence: "The soldiers helped liberate the prisoners from the camp."
+      },
+      {
+        word: "numerous",
+        translation: "眾多的；許多的",
+        definition: "Adj 1. Very many; great in number.",
+        sentence: "Numerous stars were visible in the clear night sky."
+      },
+      {
+        word: "occasion",
+        translation: "場合；時刻；重大活動；引起",
+        definition: "N 1. A particular time when something happens.\nN 2. A special event or celebration.\nV 1. To cause something to happen.",
+        sentence: "The family gathered for the happy occasion of Grandma's birthday."
+      },
+      {
+        word: "oppose",
+        translation: "反對；抵抗",
+        definition: "V 1. To disagree with or act against someone or something.",
+        sentence: "Many residents oppose the plan to cut down the old trees."
+      },
+      {
+        word: "prohibit",
+        translation: "禁止；不准",
+        definition: "V 1. To forbid or refuse to allow something.",
+        sentence: "The museum rules prohibit visitors from touching the paintings."
+      },
+      {
+        word: "pursue",
+        translation: "追趕；追求；從事",
+        definition: "V 1. To follow or chase in order to catch.\nV 2. To work toward a goal or continue an activity.",
+        sentence: "She practiced every day to pursue her dream of becoming a musician."
+      }
+    ]
   }
 };

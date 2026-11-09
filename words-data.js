@@ -732,6 +732,30 @@ window.WORDLY_WISE_UNITS = {
         translation: "追趕；追求；從事",
         definition: "V 1. To follow or chase in order to catch.\nV 2. To work toward a goal or continue an activity.",
         sentence: "She practiced every day to pursue her dream of becoming a musician."
+      },
+      {
+        word: "reassure",
+        translation: "使安心；消除疑慮",
+        definition: "V 1. To make someone feel less worried or afraid.",
+        sentence: "The teacher tried to reassure the nervous students before the test."
+      },
+      {
+        word: "reluctant",
+        translation: "不情願的；勉強的",
+        definition: "Adj 1. Unwilling or hesitant to do something.",
+        sentence: "Mia was reluctant to leave her friends at the end of summer camp."
+      },
+      {
+        word: "superior",
+        translation: "較好的；較高等的；上級",
+        definition: "Adj 1. Better in quality or greater in ability.\nAdj 2. Higher in rank or position.\nN 1. A person of higher rank or position.",
+        sentence: "The new telescope gives us a superior view of the stars."
+      },
+      {
+        word: "yearn",
+        translation: "渴望；嚮往",
+        definition: "V 1. To have a strong desire for something.",
+        sentence: "After months away, the travelers began to yearn for home."
       }
     ]
   }
